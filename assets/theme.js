@@ -9685,3 +9685,31 @@ function removeImageLoadingAnimation(image) {
     imageWrapper.removeAttribute('data-image-loading-animation');
   }
 }
+
+
+/* fetch API */
+
+fetch('https://free.currconv.com/api/v7/convert?q=USD_PHP&compact=ultra&apiKey=0a1fc3d83e4ecde11dbe', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  
+})
+.then(response => {
+ 
+  return response.json();
+})
+.then(res=> console.log(res))
+.catch((error) => {
+  console.error('Error:', error);
+});
+
+/* Handle Submit */
+function currencyFormSubmit(event){
+  console.log('currency submit' ,e)
+  event.target.form.submit();
+  }
+  document.querySelectorAll('.shopify-currency-form select').forEach(function(element) {
+    element.addEventListener('change', currencyFormSubmit);
+  });
