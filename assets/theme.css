@@ -396,6 +396,9 @@ textarea {
     direction: ltr;
     text-align: left;
     float: right; }
+    
+
+  /* product img change on hover */
 
   .grid__item {
     position: relative;
@@ -410,6 +413,7 @@ textarea {
   } 
   
   .grid__item:hover .hidden{
+    background-color: white;
     display:block;
   }
 
