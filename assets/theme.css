@@ -397,6 +397,22 @@ textarea {
     text-align: left;
     float: right; }
 
+  .grid__item {
+    position: relative;
+  }
+  
+  .grid__item .hidden {
+    position: absolute;
+    top: 0;
+    height:100%;
+    width:100%;
+    display:none
+  } 
+  
+  .grid__item:hover .hidden{
+    display:block;
+  }
+
 /*============================================================================
   Grid Columns
     - Create width classes, prepended by the breakpoint name.
@@ -556,6 +572,25 @@ textarea {
 
 .text-center {
   text-align: center !important; }
+
+
+  /* -----product picture change on hover ---------- */
+
+  .grid__item {
+    position: relative;
+  }
+
+  .grid__item .hidden {
+    position: absolute;
+    top: 0;
+    min-height: 100%;
+    min-width: 100%;
+    display:none;
+  } 
+
+  .grid__item:hover .hidden{
+    display:block;
+  }
 
 /*================ Build Responsive Grid Classes ================*/
 @media only screen and (max-width: 749px) {
