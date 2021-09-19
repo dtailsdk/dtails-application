@@ -255,6 +255,8 @@
   let current = '';
   let newCurrency = ''; // initial values
   let exchangeRate = '';
+  let dollarUSLocale = Intl.NumberFormat('en-US');
+  let dollarDanishLocale = Intl.NumberFormat('da-DK');
     if(event.target.value === 'DKK')
     {
       newCurrency = event.target.value;
@@ -270,6 +272,12 @@
      {
        exchangeRate = Object.values(data)[0];
        console.log(exchangeRate);   
+       let spans = document.querySelectorAll('.price-item');
+       for (i = 0; i < spans.length; ++i) {
+         let currentPrice = Number(spans[i].innerText.split(" ")[0]);
+         let convertedPrice
+        spans[i].innerText = "green";
+      }
     })
     .catch((error) => {
       console.error('Error converting currency:', error);
@@ -277,7 +285,13 @@
   console.log(event.target.value); 
    
   // TODO: Manipulate all products price here. But HOW ?
-   console.log('{{settings.currency_code_enabled}}');
+   console.log('{{collection.products[0].price}}');
+   // HACK
+   
+   document.querySelectorAll('.price-item')[0].innerText = "100 USD"
+   console.log(document.querySelectorAll('.price-item'));
+
+   
 });
 </script>
 
