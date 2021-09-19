@@ -112,9 +112,25 @@
                     {% include 'icon-chevron-down' %}
                   </div>
                 </div>
-              {% endif %}
+              {% endif %} 
+              <div class="filters-toolbar__item-child">                
+                <label class="filters-toolbar__label select-label" for="Choose Currency">Currency</label>
+                <div class="filters-toolbar__input-wrapper select-group">
+                  <select name="currency" id="currency-dropDown"
+                    class="filters-toolbar__input hidden"
+                    aria-describedby="a11y-refresh-page-message a11y-selection-message"
+                    data-select-input
+                  >
+                  <option value="DKK" selected="selected">DKK</option>
+                  <option value="USD">USD</option>
+                  </select>
+                  {% include 'icon-chevron-down' %}
+                </div>
+              </div>                    
             </div>
-
+            <!-- Currency Drop Down -->
+                      
+            <!-- END Currency Drop Down -->
             <div class="filters-toolbar__item filters-toolbar__item--count">
               <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
             </div>
@@ -233,7 +249,37 @@
 
 {% endpaginate %}
 
-
+<script>
+  const currencyElement = document.querySelector('#currency-dropDown');
+  currencyElement.addEventListener('change', (event) => {
+  let current = '';
+  let newCurrency = ''; // initial values
+  let exchangeRate = '';
+    if(event.target.value === 'DKK')
+    {
+      newCurrency = event.target.value;
+      current = 'USD';
+    }
+    else{
+      newCurrency = 'USD'
+      current = 'DKK'
+    }
+    fetch("https://free.currconv.com/api/v7/convert?q="+`${current}`+'_'+ `${newCurrency}`+"&compact=ultra&apiKey=e91d514567cb011837c7")
+    .then(res => res.json())
+    .then(data => 
+     {
+       exchangeRate = Object.values(data)[0];
+       console.log(exchangeRate);   
+    })
+    .catch((error) => {
+      console.error('Error converting currency:', error);
+    });
+  console.log(event.target.value); 
+   
+  // TODO: Manipulate all products price here. But HOW ?
+   console.log('{{settings.currency_code_enabled}}');
+});
+</script>
 
 {% schema %}
 {

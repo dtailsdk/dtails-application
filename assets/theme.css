@@ -2330,8 +2330,18 @@ hr {
   .grid-view-item__image-wrapper .grid-view-item__image {
     position: absolute;
     top: 0; }
-  .grid-view-item__image.lazyload {
-    opacity: 0; }
+  .grid-view-item__image .lazyload {
+    opacity: 0; }  
+
+.grid-view-item .hidden {   
+  z-index: -1;  
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;  
+}
+.grid-view-item:hover .hidden {
+  opacity: 1;
+  z-index: 99;  
+}
 
 .list-view-item {
   margin-bottom: 22px; }

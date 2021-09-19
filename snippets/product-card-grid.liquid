@@ -18,7 +18,7 @@
 
   <div class="product-card__image-with-placeholder-wrapper" data-image-loading-animation>
     <div class="grid-view-item__image-wrapper product-card__image-wrapper js">
-      <div style="padding-top:{% unless preview_image == blank %}{{ 1 | divided_by: preview_image.aspect_ratio | times: 100 }}%{% else %}100%{% endunless %};">
+      <div style="padding-top:{% unless preview_image == blank %}{{ 1 | divided_by: preview_image.aspect_ratio | times: 100 }}%{% else %}100%{% endunless %};" >
         <img class="grid-view-item__image lazyload"
               alt="{{ preview_image.alt }}"
               data-src="{{ img_url }}"
@@ -26,6 +26,17 @@
               data-aspectratio="{{ preview_image.aspect_ratio }}"
               data-sizes="auto"
               data-image>
+        {%- if product.images.size > 1 -%}
+            {%- assign secondary_image = product.images[1] -%}
+            {%- assign secondary_img_url = secondary_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}                 
+        <img class="grid-view-item__image lazyload hidden"
+              alt="{{ secondary_image.alt }}"
+              data-src="{{ secondary_img_url }}"
+              data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+              data-aspectratio="{{ secondary_image.aspect_ratio }}"
+              data-sizes="auto"
+              data-image>               
+        {%- endif -%}
       </div>
     </div>
   </div>
