@@ -48,10 +48,13 @@ Therefore you do not have to apply any of this functionality to other templates/
 
 The task has two parts:
 
-**Part 1: Secondary product image on mouse hover**
+**Part 1: Secondary product image on mouse hover, and SALE badge**
 
 Each product in our shop has both a featured image and a gallery of extra images. Your job is to create a nice animation effect that will overlay the secondary image of the product when hovering over the element with a mouse. When the mouse leaves again, the featured image should switch back.
 You are free to implement this using pure CSS, Javascript, or a combination of both.
+
+Furthermore, we would also like to display a SALE badge somewhere on the grid item. Feel free to get inspired from other shops (use SVGs, icons, or just plain text), and just hardcode the logic. I.e., the products don't actually have to be on sale. 
+
 
 **Part 2: API based currency conversion of product prices**
 
