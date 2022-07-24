@@ -1,17 +1,5 @@
 # dtails-application
 
-Welcome to Round 2 of the application process!
-Our main goal with this test is to get a relevant idea of your programming skills, specifically HTML, CSS, and Javascript. Furthermore, the exercise will challenge you to learn a little bit of Shopify Liquid.
-
-This will be a three step process:
-
-**Step 1:** We will give you a few days to prepare with some relevant documentation links and setting up some tooling.
-
-**Step 2:** You will choose a day that suits you to complete the test. Available days are the 16th to the 19th September.
-
-**Step 3:** At *9.00 on the chosen day of your preference* we will send you an email with a link to our Github repo, which will contain a Readme with a full task description and the process for completion. You will fork the repo and have 12 hours to complete the task. That means that the deadline for completion is ***at 21.00 the same day***.  
-We do not expect the task to take more than 4 hours, so the 12 hours is available in order for you to fit it into your day. We do expect regular commits throughout the task so that we can follow you work, but more on that later!  
-
 
 ## Preparation
 
